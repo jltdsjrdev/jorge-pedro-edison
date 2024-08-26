@@ -24,11 +24,18 @@
         <input type="submit" value="Enviar">
     </form>
 
-    {% if nome %}
-    <h2>Informações do Pet</h2>
-    <p>Nome: {{ nome }}</p>
-    <p>Idade: {{ idade }} anos</p>
-    <p>Peso: {{ peso }} kg</p>
+    {% if pets %}
+    <h2>Informações dos Pets Registrados</h2>
+    <ul>
+        {% for pet in pets %}
+        <li>
+            <strong>Nome:</strong> {{ pet.nome }}<br>
+            <strong>Idade:</strong> {{ pet.idade }} anos<br>
+            <strong>Peso:</strong> {{ pet.peso }} kg
+        </li>
+        <br>
+        {% endfor %}
+    </ul>
     {% endif %}
 </body>
 </html>
