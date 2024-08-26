@@ -1,39 +1,27 @@
-def coletar_nome_pet():
-    nome = input("Nome do pet: ")
+def coletar_nome_pet(nome):
+    return nome
 
-def coletar_idade_pet():
-    while True:
-        try:
-            idade = int(input("Idade do pet (em anos): "))
-            if idade < 0:
-                print("A idade não pode ser negativa. Tente novamente.")
-            else:
-                break
-        except ValueError:
-            print("Por favor, insira um número válido para a idade.")
+def coletar_idade_pet(idade_str):
+    try:
+        idade = int(idade_str)
+        if idade < 0:
+            raise ValueError("A idade não pode ser negativa.")
+        return idade
+    except ValueError:
+        raise ValueError("Por favor, insira um número válido para a idade.")
 
-def coletar_peso_pet():
-    while True:
-        try:
-            peso = float(input("Peso do pet (em kg): "))
-            if peso < 0:
-                print("O peso não pode ser negativo. Tente novamente.")
-            else:
-                break
-        except ValueError:
-            print("Por favor, insira um número válido para o peso.")
+def coletar_peso_pet(peso_str):
+    try:
+        peso = float(peso_str)
+        if peso < 0:
+            raise ValueError("O peso não pode ser negativo.")
+        return peso
+    except ValueError:
+        raise ValueError("Por favor, insira um número válido para o peso.")
 
 def mostrar_dados_pet(nome, idade, peso):
-    print("\nInformações do pet:")
-    print(f"Nome: {nome}")
-    print(f"Idade: {idade} anos")
-    print(f"Peso: {peso} kg")
-
-def coletar_informacoes_pet():
-    nome = coletar_nome_pet()
-    idade = coletar_idade_pet()
-    peso = coletar_peso_pet()
-    mostrar_dados_pet(nome, idade, peso)
-
-if __name__ == "__main__":
-    coletar_informacoes_pet()
+    return {
+        "nome": nome,
+        "idade": idade,
+        "peso": peso
+    }
